@@ -1,5 +1,9 @@
-<div style="float:left;margin:0 10px 10px 0" markdown="1">
-    ![logo](http://tardis1.tinygrab.com/grabs/fcf702cda794777a7725057b1df13b51b9be5adf5b.jpg)
-</div>
-## WELCOME TO LIAM FRAMEWORK
-=====
+[Welcome to liam framework](http://new.tinygrab.com/fcf702cda77ee471a30017b9c33a015ab10cd9d74d.jpg)
+Welcome to Liam framework
+-----
+**Liam** - is a framework which converts a routine processing layouts of letters and following HTML codding layout in an automated process.
+
+All you have to do is:
+* Collect configuration.
+* Save the image.
+* Write 40 lines of the template.
