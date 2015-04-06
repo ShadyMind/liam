@@ -9,6 +9,6 @@ All you have to do is:
 * Save the image.
 * Write 40 lines of the template.
 
-Whatg Liam can:
+What Liam can:
 * Watch for right typographic.
-* Few steps processing an a HTML-letter.
+* Few steps processing an a HTML-lettner.

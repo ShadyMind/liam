@@ -1,3 +1,1 @@
-require('./core/build/tasks')();
-
-console.log()
+require('./core/build')();
