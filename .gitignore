@@ -1,9 +1,10 @@
 .idea
 .DS_Store
-/build/*
-/node_modules
+build/*
+letters/*
+node_modules
 bower_components
-.bower.json
+.bowerrc
 *.log
 *.idea
 *.swp

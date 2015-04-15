@@ -3,7 +3,7 @@
   "description": "Easy and mighty mail framework",
   "version": "0.0.1",
   "bugs": {
-    "url": "https://github.com/shadymind/lian/issues/",
+    "url": "https://github.com/shadymind/liam/issues/",
     "mail": "asta-bors@yandex.ru"
   },
   "author": "Boris Astanin<asta-boris@yandex.ru>",
@@ -11,15 +11,21 @@
   "license": "Apache 2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/shadymind/lian/"
+    "url": "https://github.com/shadymind/liam/"
   },
   "config": {
     "file": "core/config.json"
   },
   "dependencies": {
     "gulp": "^3.8.11",
+    "gulp-prompt": "^0.1.2",
     "gulp-watch": "^4.2.3",
     "inquirer": "^0.8.2",
-    "lodash": "^3.6.0"
+    "lodash": "^3.6.0",
+    "require-dir": "^0.3.0"
+  },
+  "devDependencies": {
+    "gulp-jade": "^1.0.0",
+    "require-dir": "^0.3.0"
   }
 }

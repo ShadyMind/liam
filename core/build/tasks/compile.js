@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var fn   = require('../build-fn.js')();
+var fs   = require('fs');
 var path = require('path');
 var jade = require('gulp-jade');
 var gutil   = require('../../../node_modules/gulp/node_modules/gulp-util');
@@ -9,18 +10,16 @@ var project = (params != null)
 	? params.project || params.p || params[Object.keys(params)[0]]
 	: fn.getLatestProject();
 
-var workDir = path.join('letters/source/', project);
+var dir = {
+	work: path.join(process.cwd(), '/letters/source/', project),
+	dest: path.join(process.cwd(), '/letters/build/', project)
+
+};
 
 module.exports = function() {
-	gutil.log('Start new session for \'' + gutil.colors.cyan(project) + '\' project');
-	gulp.watch(
-		[
-			path.join(workDir, 'body.jade'),
-			path.join(workDir, 'config.jade')
-		],
-		[
-			'compile'
-		]
-	);
-
+	gulp.src(path.join(dir.work, '/body.jade'))
+		.pipe(jade({
+			client: true
+		}))
+		.pipe(gulp.dest(dir.dist));
 };

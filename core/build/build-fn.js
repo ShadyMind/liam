@@ -4,9 +4,73 @@ var fs = require('fs');
 
 module.exports = function () {
     return {
+        parseCliKeys: function(keys) {
+            var cliData = null;
+            var cliKeys = _.filter(keys||process.argv, function(unit) {
+                return _.startsWith(unit, '-');
+
+            });
+
+            if (cliKeys.length > 0) {
+                cliData = {};
+                cliKeys = _.map(cliKeys, function (unit) {
+                    return _.trim(unit, '-');
+
+                });
+
+                _(cliKeys).forEach(function (unit) {
+                    if (unit.match('=')) {
+                        unit = unit.split('=');
+                        cliData[unit[0]] = unit[1];
+                    } else {
+                        cliData[unit] = unit;
+                    }
+                }).value();
+            }
+
+            return cliData;
+
+        },
+
+        getLatestProject: function() {
+            var date = null;
+            var name = null;
+            var rootFolders = fs.readdirSync('letters');
+
+            _(rootFolders).forEach(function(folder) {
+                var folderMeta = fs.lstatSync(path.join('letters', folder));
+                folderMeta['name'] = folder;
+
+                if (date < folderMeta.mtime) {
+                    date = folderMeta.mtime;
+                    name = folderMeta.name;
+
+                }
+
+            }).value();
+
+            var fileDate = null;
+            var fileName = null;
+            var latestFiles = fs.readdirSync(path.join('letters', name));
+
+            _(latestFiles).forEach(function(file) {
+                var fileMeta = fs.lstatSync(path.join('letters/', name, file));
+                fileMeta['name'] = file;
+
+                if (fileDate < fileMeta.mtime) {
+                    fileDate = fileMeta.mtime;
+                    fileName = fileMeta.name;
+
+                }
+
+            }).value();
+
+            return fileName;
+
+        },
+
         loadGulpTask: function loadGulpTask(name) {
-            var path = require('path');
-            return require(path.join(process.cwd(), 'core/build/tasks/' + name + '.js'))();
+            return require(path.join(process.cwd(), 'core/build/tasks/' + name + '.js'));
 
         },
 
