@@ -17,9 +17,7 @@ var dir = {
 };
 
 module.exports = function() {
-	gulp.src(path.join(dir.work, '/body.jade'))
-		.pipe(jade({
-			client: true
-		}))
-		.pipe(gulp.dest(dir.dist));
+	gulp.src(path.join(dir.work, '/*.jade'))
+		.pipe(jade())
+		.pipe(gulp.dest(dir.dest));
 };

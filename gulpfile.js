@@ -6,10 +6,16 @@ require.dir     = require('require-dir');
 require.task    = fn.loadGulpTask;
 
 gulp.task('default', function() {
-	gutil.log('Welcome to Liam framework');
+	//gulp.src('invite').pipe(console.log(this));
+	gutil.log('=================================');
+	gutil.log('*** Welcome to Liam framework ***');
+	gutil.log('=================================');
 });
+
 
 gulp.task('new', require.task('new'));
 gulp.task('imagemin', require.task('imagemin'));
-gulp.task('compile', require.task('compile'));
-gulp.task('session', require.task('session'));
+gulp.task('jade', require.task('jade'));
+gulp.task('compile', ['jade', 'imagemin']);
+gulp.task('session', ['compile'], require.task('session'));
+
