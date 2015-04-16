@@ -17,7 +17,11 @@ var dir = {
 };
 
 module.exports = function() {
+	var html = jade.renderFile('filename.jade', merge(options, locals));
+
 	gulp.src(path.join(dir.work, '/*.jade'))
-		.pipe(jade())
+		.pipe(jade({
+			locals: require(path.join(dir.work, 'config.json'))
+		}))
 		.pipe(gulp.dest(dir.dest));
 };

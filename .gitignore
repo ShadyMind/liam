@@ -8,3 +8,6 @@ bower_components
 *.log
 *.idea
 *.swp
+*.zip
+*.rar
+*.tar.gz

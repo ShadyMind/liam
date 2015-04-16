@@ -2,17 +2,7 @@
   "name": "Liam",
   "description": "Easy and mighty mail framework",
   "version": "0.0.1",
-  "bugs": {
-    "url": "https://github.com/shadymind/liam/issues/",
-    "mail": "asta-bors@yandex.ru"
-  },
   "author": "Boris Astanin<asta-boris@yandex.ru>",
-  "contributors": [],
-  "license": "Apache 2.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/shadymind/liam/"
-  },
   "config": {
     "file": "core/config.json"
   },
@@ -28,6 +18,7 @@
     "gulp-imagemin": "^2.2.1",
     "gulp-jade": "^1.0.0",
     "imagemin-pngquant": "^4.0.0",
+    "jade": "^1.9.2",
     "require-dir": "^0.3.0"
   }
 }

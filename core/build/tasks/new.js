@@ -54,6 +54,13 @@ module.exports = function(gulp) {
             }
 
         });
+        fs.lstat(path.join(dir, './images/'), function(err) {
+            if (err) {
+                fs.mkdir(path.join(dir, './images/'));
+
+            }
+
+        });
 
     });
 

@@ -1,17 +1,8 @@
-//- parameters
 - var spacers = true;
 - var path = imgPath[env];
-block params
-include _tools/_framework
+
+//include _tools/_framework
 doctype transitional
-- var project = {name: 'example' };
-
-
-
-- function currentTemplate() {
--   console.log(this);
--   return eval('include ' + project.name);
-- }
 
 html(xmlns:v='urn:schemas-microsoft-com:vml')
   head
@@ -22,14 +13,10 @@ html(xmlns:v='urn:schemas-microsoft-com:vml')
     meta(http-equiv='X-UA-Compatible' content='IE=9; IE=8; IE=7; IE=EDGE')
     if (letter.subject)
       title!= letter.subject
-    +if('gte mso 9')
-      <xml><o:OfficeDocumentSettings><o:AllowPNG/></o:OfficeDocumentSettings></xml><xml><w:WordDocument><w:Compatibility><w:SplitPgBreakAndParaMark/><w:EnableOpenTypeKerning/></w:Compatibility></w:WordDocument></xml><xml:namespace ns="urn:schemas-microsoft-com:vml" prefix="v" />
-      style
-        | v\: * { behavior: url(#default#VML); }
-    style
-      | html { -webkit-text-size-adjust: none; } a { text-decoration: inherit; } a.link { text-decoration: underline; } td { position: relative; }
-    block styles
+    +if('gte mso 9') <xml><o:OfficeDocumentSettings><o:AllowPNG/></o:OfficeDocumentSettings></xml><xml><w:WordDocument><w:Compatibility><w:SplitPgBreakAndParaMark/><w:EnableOpenTypeKerning/></w:Compatibility></w:WordDocument></xml><xml:namespace ns="urn:schemas-microsoft-com:vml" prefix="v" />
+      style v\:* { behavior: url(#default#VML); }
+    style html { -webkit-text-size-adjust: none; } a { text-decoration: inherit; } a.link { text-decoration: underline; } td { position: relative; }
   body(lang=lang, link=color.accentAlt, style='margin:0;padding:0;', vlink=color.accentAlt, text=font.color, onload="document.implementation.createDocumentType('html','-//W3C//DTD XHTML 1.0 Transitional//EN','http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtdd');document.getElementsByTagName('html')[0].setAttribute('xmlns:v', 'urn:schemas-microsoft-com:vml');")
-    font(face=font.face || false, size=2)
+    font(face=font.face || false, size=font.size)
       table(width=size.letter || false, align='center', cellspacing=0, cellpadding=0, style='border:0;padding:0;margin:0 auto;')
-        != templateRender('my/path/'+project+'.jade')
+        != content

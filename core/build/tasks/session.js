@@ -16,10 +16,12 @@ module.exports = function() {
 	gulp.watch(
 		[
 			path.join(workDir, 'body.jade'),
-			path.join(workDir, 'config.jade')
+			path.join(workDir, 'config.jade'),
+			path.join(workDir, '/images/**')
 		],
 		[
-			'compile'
+			'imagemin',
+			'jade'
 		]
 	);
 
