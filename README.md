@@ -4,11 +4,12 @@ Welcome to Liam framework
 **Liam** is a framework which converts a routine processing layouts
 of letters and following HTML codding layout in an automated process.
 
-All you have to do is:
+All you have to do its:
 * Construct configuration.
 * Save the image.
-* Write 40 lines of the template.
+* Write ~40 lines of the template.
 
 What Liam can:
 * Watch for right typographic.
 * Few steps processing an a HTML-lettner.
+* polyfill many features of usual html-coding (like background-image etc.)
