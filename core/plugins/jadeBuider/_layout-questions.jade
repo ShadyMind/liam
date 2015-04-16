@@ -1,0 +1,18 @@
+extend ../_layout.jade
+block content
+	block param
+		- var cover = cover||'smList-cover.jpg'
+	tr: td: +offset(20)
+	+emailNotice('row')
+	//-tr: td: +offset(8)
+	tr: td: +img('smList-cover-padTop.jpg', 744,53)
+	+wrap: tr
+		td: +img('smList-cover-padLeft.jpg', 59,152)
+		td: +btn(link.cover, cover, 621,152)
+		td: +img('smList-cover-padRight.jpg', 64,152)
+	tr: td: block inner
+	tr: td: +img('smList-bottom.jpg', 744,62)
+	tr: td: +offset(24)
+
+
+

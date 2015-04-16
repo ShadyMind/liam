@@ -1,0 +1,4 @@
+mixin media (size, min, dimension)
+	| @media screen and (#{min ? 'min' : 'max'}-#{dimension || 'width'}: #{size}px) {
+	block
+	| }

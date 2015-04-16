@@ -1,0 +1,42 @@
+- var letterSize = size;
+mixin offset(height)
+	if (height > -1)
+		+table(0, 0, 'center'): tr: td(height=height||13): +img('spacer.gif',1,1)
+
+
+mixin n(count)
+	- count = count||1
+	- var i = 0;
+	while(i < count - 1)
+		br/
+
+
+mixin font(size, colour, face, style)
+	- size = convertFontSize(size||font.size);
+	font(size=size.html, color=colour || font.color, face=face || font.face, style='font-size:#{size.css}px;')
+		block
+
+
+mixin link(url, size, colour, face)
+	unless colour
+		- var colour = color.accent;
+	a(href=_lc(url), style='color: #{colour};'): +font(size, colour, face, style): b: block
+
+mixin pgh(size, offset, padding, colour, align, face)
+	- var pad = getPadding(padding);
+	+table('none', '100%', align || 'left', align || 'left')
+		td(width=pad[0]): +img('spacer.gif', pad[0], 1)
+		td(style='mso-line-height-rule:exactly;line-height:' + getLineHeight(size||font.size) + 'px;')
+			+font(size, colour, face, style): block
+			+offset(offset || 26)
+		td(width=pad[1]): +img('spacer.gif', pad[1], 1)
+
+
+mixin heading(size, offset, padding, colour, align, face)
+	- var pad = getPadding(padding);
+	+table('none', '100%', align || 'center', align || 'center')
+		td(width=pad[0]): +img('spacer.gif', pad[0],1)
+		td
+			+font(size || 5, colour || false, face): b: block
+			+offset(offset || 26)
+		td(width=pad[1]): +img('spacer.gif', pad[1],1)

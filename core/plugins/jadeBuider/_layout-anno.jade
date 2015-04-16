@@ -1,0 +1,26 @@
+extend ../_layout.jade
+block content
+    tr: +overlay(color.bg, 'ao-cover-01.jpg', size.letter,599)
+        +offset(210)
+        +table('transparent', false, 'center')
+            tr: +overlay('transparent', 'ao-layout-topBack.png', size.layout,21)
+            tr: +overlay(color.layout, 'ao-layout-back.jpg', size.layout, 'auto',1)
+                block inner
+            tr: +overlay('transparent', 'ao-layout-bottomBack.png', size.layout,15)
+        +table('transparent', false, 'center', false, 25)
+            tr
+                td: +btn(link.ubi, 'ao-ubiLogo.jpg', 148,45)
+                td: +btn(link.fb, 'ao-fbLogo.jpg', 45,45)
+                td: +btn(link.vk, 'ao-vkLogo.jpg', 45,45)
+                td: +btn(link.fo, 'ao-foLogo.jpg', 83,48)
+                td: +btn(link.bb, 'ao-bbLogo.jpg', 62,81)
+
+        +table('transparent', size.layout, 'center', 'center')
+            tr: td(style='mso-line-height-rule:exactly;line-height:9px;')
+                +font(1, '#8f8f8f')
+                    | © 2012 Ubisoft Entertainment. Все права сохранены Ubisoft и логотип Ubisoft являются#{' '}
+                    | товарными знаками компании Ubisoft Entertainment в США и/или других странах. Произведено Blue#{' '}
+                    | Byte. Anno, Blue Byte и логотип Blue Byte являются товарными знаками компании Ubisoft GmbH в#{' '}
+                    | США и/или других странах.
+        +offset(30)
+

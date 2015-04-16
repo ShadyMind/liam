@@ -1,0 +1,16 @@
+mixin wrongEmailNotice(wrapType)
+    case nodeType.toLowerCase()
+        when 'cell': td(id=id, align='center')
+        when 'row': tr(id=id): td(align='center')
+        when 'paragraph': p(id=id)
+        when 'raw': span(id=id)
+        default: span(id=id)
+            script.
+                document.addEventListener("DOMContentLoaded", function () {
+                    var noticeNode = document.getElementById('#{id}');
+                    noticeNode.parentNode.removeChild(noticeNode);
+                });
+            +font(2) Если у Вас неправильно отображается опрос, то Вы можете открыть его в#{' '}
+            +link(link.body, 2, font.color) отдельном окне
+            | .
+
