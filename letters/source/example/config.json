@@ -16,6 +16,15 @@
             "email": ""
         }
     },
+    "size": {
+        "layout": 602,
+        "letter": 720,
+        "textPad": 25
+
+    },
+    "font": {
+        "color": "#000000"
+    },
     "layout": {
         "size": 720,
         "margin": 25,

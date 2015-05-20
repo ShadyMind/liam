@@ -1,7 +1,6 @@
 .idea
 .DS_Store
 build/*
-letters/*
 node_modules
 bower_components
 .bowerrc

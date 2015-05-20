@@ -1,9 +1,12 @@
-var gulp = require('gulp');
-var fn   = require('../build-fn.js')();
-var fs   = require('fs');
-var path = require('path');
-var jade = require('gulp-jade');
-var gutil   = require('../../../node_modules/gulp/node_modules/gulp-util');
+var gulp  = require('gulp');
+	fn    = require('../build-fn.js'),
+	fs    = require('fs'),
+	path  = require('path'),
+	jade  = require('jade'),
+	gJade  = require('gulp-jade'),
+	gutil = require('../../../node_modules/gulp/node_modules/gulp-util'),
+	_     = require('lodash'),
+	img   = require('../../plugins/imageHandler');
 
 var params = fn.parseCliKeys();
 var project = (params != null)
@@ -17,11 +20,25 @@ var dir = {
 };
 
 module.exports = function() {
-	var html = jade.renderFile('filename.jade', merge(options, locals));
+	var locals = _.merge(
+		require(path.join(dir.work,'config.json')),
+		require(path.join(process.cwd(), 'core/plugins/jadeBuilder/functions.js'))
 
-	gulp.src(path.join(dir.work, '/*.jade'))
-		.pipe(jade({
-			locals: require(path.join(dir.work, 'config.json'))
-		}))
-		.pipe(gulp.dest(dir.dest));
+	);
+	locals.html = jade.compileFile(
+		path.join(dir.work, '/body.jade'),
+		{
+			pretty: true
+		}
+
+	)(locals);
+
+	gulp.src(path.join(process.cwd(), 'core/body.jade'))
+		.pipe(
+			gJade({
+				pretty: true,
+				locals: locals}))
+		.pipe(
+			gulp.dest(
+				dir.dest));
 };

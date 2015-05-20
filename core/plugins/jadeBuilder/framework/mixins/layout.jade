@@ -1,0 +1,60 @@
+//----------------------------------
+//-     SERVICE MIXINS
+//----------------------------------
+mixin _t(width, align, bg, params)
+	- var alignment = getAlign(align||'tl');
+	- params = params || {};
+	- params.valign = alignment.valign;
+	- params.align = alignment.align;
+	- params.width = width || size.layout;
+	- params.bgcolor = bg;
+	- params.color = font.color;
+
+	table(colspan=0 rowspan=0)&attributes(params||{})
+		block
+
+
+
+
+- var secCount = 0, lineCount = 0, cellIsNested = false;
+mixin sec(params)
+	- params = params||{};
+	- params.id = 'SEC#' + ++secCount;
+	+_t(size.layout, 0, '#111111', params)
+		block
+
+mixin section
+	sec: block
+
+mixin n(bg, params)
+	- ++lineCount;
+	if (bg)
+		tr()&attributes(params||{}): +bg(bg) block
+	else
+		tr()&attributes(params||{}): block
+
+
+mixin line(bg, params)
+	n(bg, params): block
+
+mixin cl(width, align, bg, params)
+	if (bg)
+		td()&attributes(params||{}): +bg(bg): block
+
+	else
+		td()&attributes(params||{}): block
+
+
+mixin cell()
+	cl: block
+
+
+
+
+
+//-
+	+sec
+		+cl
+		+par
+			+cl(190, ['#000000', 'image.jpg', [200,200]]): +pgh
+			+cl: +pgh

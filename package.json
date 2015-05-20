@@ -12,6 +12,7 @@
     "gulp-watch": "^4.2.3",
     "inquirer": "^0.8.2",
     "lodash": "^3.6.0",
+    "lwip": "0.0.6",
     "require-dir": "^0.3.0"
   },
   "devDependencies": {

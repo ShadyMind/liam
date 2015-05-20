@@ -1,5 +1,5 @@
 var fs      = require('fs');
-var fn      = require('../build-fn.js')();
+var fn      = require('../build-fn.js');
 var path    = require('path');
 var _       = require('lodash');
 var gulp    = require('gulp');

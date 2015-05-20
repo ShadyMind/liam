@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var fn   = require('../build-fn.js')();
+var fn   = require('../build-fn.js');
 var path = require('path');
 var imagemin = require('gulp-imagemin');
 var gutil   = require('../../../node_modules/gulp/node_modules/gulp-util');

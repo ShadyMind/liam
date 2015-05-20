@@ -1,9 +1,7 @@
 - var spacers = true;
-- var path = imgPath[env];
 
-//include _tools/_framework
+include plugins/jadeBuilder/_framework.jade
 doctype transitional
-
 html(xmlns:v='urn:schemas-microsoft-com:vml')
   head
     meta(charset=charset)
@@ -16,7 +14,7 @@ html(xmlns:v='urn:schemas-microsoft-com:vml')
     +if('gte mso 9') <xml><o:OfficeDocumentSettings><o:AllowPNG/></o:OfficeDocumentSettings></xml><xml><w:WordDocument><w:Compatibility><w:SplitPgBreakAndParaMark/><w:EnableOpenTypeKerning/></w:Compatibility></w:WordDocument></xml><xml:namespace ns="urn:schemas-microsoft-com:vml" prefix="v" />
       style v\:* { behavior: url(#default#VML); }
     style html { -webkit-text-size-adjust: none; } a { text-decoration: inherit; } a.link { text-decoration: underline; } td { position: relative; }
-  body(lang=lang, link=color.accentAlt, style='margin:0;padding:0;', vlink=color.accentAlt, text=font.color, onload="document.implementation.createDocumentType('html','-//W3C//DTD XHTML 1.0 Transitional//EN','http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtdd');document.getElementsByTagName('html')[0].setAttribute('xmlns:v', 'urn:schemas-microsoft-com:vml');")
+  body(lang=lang, link=false, style='margin:0;padding:0;', vlink=false, text=font.color, onload="document.implementation.createDocumentType('html','-//W3C//DTD XHTML 1.0 Transitional//EN','http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtdd');document.getElementsByTagName('html')[0].setAttribute('xmlns:v', 'urn:schemas-microsoft-com:vml');")
     font(face=font.face || false, size=font.size)
       table(width=size.letter || false, align='center', cellspacing=0, cellpadding=0, style='border:0;padding:0;margin:0 auto;')
-        != content
+        != html
