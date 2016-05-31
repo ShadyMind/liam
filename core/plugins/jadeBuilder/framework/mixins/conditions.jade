@@ -1,9 +1,0 @@
-mixin if (condition, visibleContent)
-	<!--[if #{condition}]#{visibleContent ? '--' : ''}>
-	block
-	<!#{visibleContent ? '--' : ''}[endif]-->
-
-mixin unless (condition, visibleContent)
-	<!#{visibleContent ? '--' : ''}[endif]-->
-	block
-	<!--[if #{condition}]#{visibleContent ? '--' : ''}>
